@@ -1,0 +1,1 @@
+tic-tool pack -a glory_source.lua glory.tic
