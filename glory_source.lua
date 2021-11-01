@@ -100,7 +100,7 @@ function TIC()
 	for i = 1, 32639 do
 		--The buffer will be nil on the first frame, so we need to initialize the values.
 		v = buffer[i] or 0
-		--Read pixel value from VRAM. Don't actually read the same pixel, but a nearby pixel, to create some glitchiness.
+		--Read pixel value from VRAM. Add a value based on time for glitchiness.
 		--Add that value to what's in the buffer and multiply by .8.
 		buffer[i] = .8 * v + peek4(i) * ((i + t) % (1 + math.sin(t)))
 		--Write the buffer value into VRAM. Make sure it doesn't wrap around if the value is greater than 15.
