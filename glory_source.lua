@@ -24,7 +24,7 @@ function TIC()
 	
 	--Generate the palette. Leave 0 alone so it will always be black-ish.
 	for i = 1, 47 do
-		--Avoid a for loop with a boolean expression. Unless i % 3 == 0 (which means we're generating the red component of the RGB color), v is 0.
+		--Avoid an if clause with a boolean expression. Unless i % 3 == 0 (which means we're generating the red component of the RGB color), v is 0.
 		v = i % 3 == 0 and 60 + 195 / ((i + 1) * .99 * math.sin(t)) or 0
 		poke(16320 + i, math.min(255, v + 1.13 ^ i))
 	end
